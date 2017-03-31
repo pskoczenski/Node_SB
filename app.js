@@ -1,12 +1,10 @@
-console.log("Hello Pika")
+var express = require('express')
+var app = express()
 
-const sayHi = function() {
-  console.log("Its Friday!")
-};
+app.get('/', function(req, res) {
+  res.send('Hello World!')
+})
 
-var counter = function(arr){
-  return 'There are ' +  arr.length  + ' elements in this array'
-};
-
-console.log(counter(["peter", "lauren", "emelina", "olin"]))
-sayHi()
+app.listen(3000, function () {
+  console.log('Server fired up on port 3k!')
+})
