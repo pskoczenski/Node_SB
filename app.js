@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
+var fs = require('fs');
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Set static path
 app.use(express.static(path.join(__dirname, 'public')));
+
 //Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
@@ -36,6 +38,8 @@ app.use(expressValidator({
 }));
 
 // ** ROUTES **
+// var routes = require('./routes.js')
+
 // Root
 app.get('/', function(req, res) {
   var title = "Sandbox";
@@ -48,8 +52,6 @@ app.get('/', function(req, res) {
 // Post => users/new
 app.post('/users/new', function(req, res){
 
-  req.checkBody('last_name', "First Name is Required").notEmpty();
-  req.checkBody('first_name', "Last Name is Required").notEmpty();
   req.checkBody('email', "Email is Required").notEmpty();
   req.checkBody('username', "Username is Required").notEmpty();
 
@@ -70,10 +72,9 @@ app.post('/users/new', function(req, res){
     console.log("Success!")
     console.log(newUser)
     res.render('users/new')
-
   };
+})
 
-  })
 // GET => /users/new
 app.get('/users/new', function(req, res){
   res.render('users/new')
