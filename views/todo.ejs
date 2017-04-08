@@ -1,10 +1,16 @@
 <% include partials/header%>
+<div id="todo-table">
   <h1>To Do List</h1>
+  <form action="index.html" method="post">
+    <input type="text" name="item" placeholder="Add Item ..." required>
+    <button type="submit" name="item">Add Item</button>
+  </form>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
 
-  <div class="todo-form">
-    <form class="todo" action="todo.ejs" method="post">
-      <input type="text" name="todo" value="">
 
-    </form>
-  </div>
+</div>
 <% include partials/footer %>
