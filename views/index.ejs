@@ -1,15 +1,13 @@
 <% include partials/header %>
-  <h2>Welcome to the Sandbox</h2>
+  <h2>Welcome to the ToDo List</h2>
   <div class="container">
-    <h5>Sign up for the sandbox</h5>
+    <h5>Sign up</h5>
     <form class="sign-up" method="post" action="/users/new">
-      <label>Username</label><br>
-      <input type="text" name="username">
+      <input type="text" name="username" placeholder="Username">
       <br><br>
-      <label>Email</label><br>
-      <input type="text" name="email">
+      <input type="text" name="email" placeholder="Email">
       <br><br>
-      <input type="submit" value="Submit">
+      <button type="submit" name="button">Submit</button>
     </form>
   </div>
 <% include partials/footer %>

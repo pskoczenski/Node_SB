@@ -20,7 +20,7 @@ body{
     clear: both;
 }
 
-form{
+.form-row{
   display: flex;
   flex-direction: row;
 }
