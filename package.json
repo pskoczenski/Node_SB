@@ -1,0 +1,27 @@
+{
+  "name": "node_sb",
+  "version": "1.0.0",
+  "description": "sandbox",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pskoczenski/Node_SB.git"
+  },
+  "author": "Peter Sko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pskoczenski/Node_SB/issues"
+  },
+  "homepage": "https://github.com/pskoczenski/Node_SB#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express-validator": "^3.1.2",
+    "jquery": "^3.2.1",
+    "mongodb": "^2.2.25"
+  }
+}
