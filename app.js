@@ -1,18 +1,40 @@
 // ** MODULES **
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var expressValidator = require('express-validator');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const expressValidator = require('express-validator');
+const todoController = require('./controllers/todoController.js');
+const $ = require('jQuery');
 
-var app = express();
+
+const app = express();
 
 // ** MIDDLEWARE **
-const middleware = ('middleware')
+// View Engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+// Set static path
+// app.use(express.static('./public'));
+app.use(express.static('public'))
 
 // ** ROUTES **
-const routes = ('routes')
+// Root
+app.get('/', function(req, res) {
+  var title = "ToDo";
+  res.render('index', {
+    title: title
+  })
+});
+
+// ** FIRE CONTROLLERS **
+todoController(app);
 
 // ** SERVER **
 app.listen(3000, function () {
-  console.log('Server fired up on port 3k!')
+  console.log('Server fired up on port 3k!');
 });
