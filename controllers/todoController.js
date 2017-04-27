@@ -1,10 +1,25 @@
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+
+// ** MONGOOSE **
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/todo');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("mongoose connected")
+});
+//** SCHEMA **
+var todoSchema = mongoose.schema({
+  item: String
+});
+var Item = mongoose.model('Item', itemSchema);
+
 
 var data = [];
-var urlencodedParser = bodyParser.urlencoded({extended: false})
+var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app){
-  console.log("CONTROLLERS")
+  console.log("CONTROLLERS");
 
   app.get('/todo', function(req, res){
     res.render('todo', {todos: data});
